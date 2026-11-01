@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ededed">
+  <title>微聊 · 本机社交演示</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="auth-shell" id="authShell">
+    <div class="auth-brand">
+      <div class="logo">聊</div>
+      <div><h1>微聊</h1><p>本机双人社交聊天演示</p></div>
+    </div>
+    <div class="auth-card">
+      <div class="auth-tabs"><button class="active" id="showLogin" type="button">登录</button><button id="showRegister" type="button">注册</button></div>
+      <form id="loginForm">
+        <label>用户名<input id="loginUsername" required autocomplete="username" minlength="2" maxlength="20"></label>
+        <label>密码<input id="loginPassword" type="password" required autocomplete="current-password" minlength="8"></label>
+        <button class="primary" type="submit">登录</button>
+      </form>
+      <form id="registerForm" hidden>
+        <label>用户名<input id="registerUsername" required autocomplete="username" minlength="2" maxlength="20"></label>
+        <label>密码<input id="registerPassword" type="password" required autocomplete="new-password" minlength="8"></label>
+        <button class="primary" type="submit">创建账号</button>
+      </form>
+      <div class="form-error" id="authError"></div>
+    </div>
+  </section>
+
+  <main class="wechat-app" id="wechatApp" hidden>
+    <aside class="rail">
+      <div class="my-avatar" id="myAvatar">我</div>
+      <nav>
+        <button class="nav-btn active" id="chatNav" type="button" title="聊天">聊</button>
+        <button class="nav-btn" id="friendsNav" type="button" title="通讯录">友</button>
+        <button class="nav-btn" id="requestsNav" type="button" title="好友申请">申<span class="badge" id="requestBadge" hidden></span></button>
+        <button class="nav-btn" id="addFriendNav" type="button" title="添加好友">＋</button>
+      </nav>
+      <button class="nav-btn logout" id="logoutBtn" type="button" title="退出">退</button>
+    </aside>
+
+    <section class="contacts-pane">
+      <header class="contacts-header">
+        <div><strong id="myUsername">用户</strong><small id="socketStatus">正在连接…</small></div>
+        <button class="square-btn" id="refreshBtn" type="button">↻</button>
+      </header>
+      <div class="search-row"><input id="friendSearch" placeholder="搜索好友"><button id="searchFriendBtn" type="button">搜索</button></div>
+      <div class="panel-title" id="listTitle">好友</div>
+      <div class="contact-list" id="friendList"></div>
+      <div class="request-list" id="friendRequests" hidden></div>
+      <div class="search-results" id="searchResults" hidden></div>
+    </section>
+
+    <section class="chat-pane">
+      <div class="empty-chat" id="emptyChat"><div class="empty-logo">聊</div><p>从左侧选择一位好友开始聊天</p></div>
+      <div class="active-chat" id="activeChat" hidden>
+        <header class="chat-header">
+          <div><strong id="chatFriendName">好友</strong><small id="chatOnlineStatus">好友聊天</small></div>
+          <button class="voice-call-btn" id="voiceCallBtn" type="button">语音通话</button>
+        </header>
+        <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+        <footer class="composer">
+          <label class="image-btn" title="发送图片">图片<input id="imageInput" type="file" accept="image/png,image/jpeg,image/gif,image/webp" hidden></label>
+          <textarea id="messageInput" rows="1" maxlength="5000" placeholder="输入消息，Enter发送"></textarea>
+          <button class="send-btn" id="sendBtn" type="button">发送</button>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <section class="call-overlay" id="callOverlay" hidden>
+    <div class="call-avatar" id="callAvatar">友</div>
+    <h2 id="callName">好友</h2>
+    <p id="callStatus">正在呼叫…</p>
+    <div class="call-actions">
+      <button class="call-button answer" id="answerCallBtn" type="button" hidden>接听</button>
+      <button class="call-button" id="muteCallBtn" type="button">静音</button>
+      <button class="call-button hang" id="hangupCallBtn" type="button">挂断</button>
+    </div>
+    <audio id="remoteAudio" autoplay playsinline></audio>
+  </section>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

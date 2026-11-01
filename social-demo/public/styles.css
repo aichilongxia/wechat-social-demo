@@ -1,0 +1,100 @@
+:root {
+  --green: #07c160;
+  --green-dark: #06ad56;
+  --ink: #191919;
+  --muted: #8a8a8a;
+  --line: #dedede;
+  --panel: #f7f7f7;
+  --chat-bg: #ededed;
+  --rail: #2e2e2e;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { overflow: hidden; color: var(--ink); background: #d7d7d7; font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+[hidden] { display: none !important; }
+.auth-shell { min-height: 100vh; display: grid; place-items: center; align-content: center; gap: 28px; padding: 24px; background: #f2f2f2; }
+.auth-brand { display: flex; align-items: center; gap: 14px; }
+.logo, .empty-logo { display: grid; place-items: center; color: white; background: var(--green); font-weight: 700; }
+.logo { width: 58px; height: 58px; border-radius: 17px; font-size: 24px; }
+.auth-brand h1 { margin: 0; font-size: 25px; }
+.auth-brand p { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+.auth-card { width: min(390px, 100%); padding: 26px; border-radius: 10px; background: white; box-shadow: 0 14px 42px rgba(0,0,0,.08); }
+.auth-tabs { display: flex; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.auth-tabs button { flex: 1; height: 42px; border: 0; color: var(--muted); background: transparent; }
+.auth-tabs button.active { color: var(--ink); border-bottom: 2px solid var(--green); font-weight: 650; }
+.auth-card form { display: grid; gap: 16px; }
+.auth-card label { display: grid; gap: 7px; color: #555; font-size: 13px; }
+.auth-card input { height: 45px; border: 1px solid var(--line); border-radius: 6px; padding: 0 12px; outline: 0; }
+.auth-card input:focus { border-color: var(--green); }
+.primary { height: 45px; border: 0; border-radius: 6px; color: white; background: var(--green); font-weight: 650; }
+.primary:hover { background: var(--green-dark); }
+.form-error { min-height: 20px; margin-top: 12px; color: #d14343; font-size: 12px; text-align: center; }
+.wechat-app { width: min(1180px, 100%); height: min(820px, 100vh); margin: auto; display: grid; grid-template-columns: 68px 300px 1fr; background: white; box-shadow: 0 18px 60px rgba(0,0,0,.14); }
+.rail { padding: 18px 0 14px; display: flex; flex-direction: column; align-items: center; background: var(--rail); }
+.my-avatar { width: 40px; height: 40px; border-radius: 5px; display: grid; place-items: center; color: white; background: var(--green); font-size: 14px; font-weight: 700; }
+.rail nav { margin-top: 26px; display: grid; gap: 13px; }
+.nav-btn { position: relative; width: 44px; height: 44px; border: 0; border-radius: 6px; color: #a7a7a7; background: transparent; font-size: 14px; }
+.nav-btn:hover, .nav-btn.active { color: var(--green); background: rgba(255,255,255,.07); }
+.nav-btn.logout { margin-top: auto; }
+.badge { position: absolute; top: 4px; right: 3px; width: 8px; height: 8px; border-radius: 50%; background: #fa5151; }
+.contacts-pane { min-width: 0; display: grid; grid-template-rows: auto auto auto 1fr; border-right: 1px solid var(--line); background: var(--panel); }
+.contacts-header { height: 76px; padding: 15px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e8e8e8; }
+.contacts-header strong { display: block; font-size: 15px; }
+.contacts-header small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
+.square-btn { width: 34px; height: 34px; border: 0; border-radius: 5px; color: #555; background: #e6e6e6; }
+.search-row { padding: 12px; display: flex; gap: 7px; }
+.search-row input { min-width: 0; flex: 1; height: 34px; border: 0; border-radius: 5px; padding: 0 10px; background: #e7e7e7; outline: 0; }
+.search-row button { border: 0; border-radius: 5px; padding: 0 10px; color: white; background: var(--green); }
+.panel-title { padding: 4px 14px 10px; color: var(--muted); font-size: 11px; }
+.contact-list, .request-list, .search-results { overflow-y: auto; }
+.contact-item, .request-item, .search-item { width: 100%; min-height: 62px; padding: 10px 12px; border: 0; border-top: 1px solid rgba(0,0,0,.035); display: flex; align-items: center; gap: 11px; text-align: left; background: transparent; }
+.contact-item:hover, .contact-item.active { background: #dedede; }
+.contact-avatar { flex: 0 0 42px; width: 42px; height: 42px; border-radius: 5px; display: grid; place-items: center; color: white; background: #6a8caf; font-weight: 700; }
+.contact-copy { min-width: 0; flex: 1; }
+.contact-copy strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; }
+.contact-copy small { color: var(--muted); font-size: 11px; }
+.mini-action { min-height: 31px; border: 0; border-radius: 5px; padding: 0 10px; color: white; background: var(--green); font-size: 12px; }
+.chat-pane { min-width: 0; background: var(--chat-bg); }
+.empty-chat { height: 100%; display: grid; place-items: center; align-content: center; gap: 12px; color: #999; }
+.empty-logo { width: 64px; height: 64px; border-radius: 19px; font-size: 23px; opacity: .8; }
+.empty-chat p { font-size: 13px; }
+.active-chat { height: 100%; display: grid; grid-template-rows: 64px 1fr auto; }
+.chat-header { padding: 0 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #d6d6d6; }
+.chat-header strong { display: block; font-size: 16px; }
+.chat-header small { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
+.voice-call-btn { height: 36px; border: 1px solid #d4d4d4; border-radius: 5px; padding: 0 13px; color: #444; background: #f7f7f7; }
+.chat-messages { overflow-y: auto; padding: 20px; }
+.message-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 18px; }
+.message-row.me { flex-direction: row-reverse; }
+.message-avatar { width: 34px; height: 34px; border-radius: 4px; display: grid; place-items: center; color: white; background: #6a8caf; font-size: 12px; }
+.message-row.me .message-avatar { background: var(--green); }
+.message-bubble { max-width: 68%; padding: 9px 12px; border-radius: 5px; background: white; line-height: 1.55; font-size: 14px; overflow-wrap: anywhere; box-shadow: 0 1px 1px rgba(0,0,0,.04); }
+.message-row.me .message-bubble { background: #95ec69; }
+.message-bubble.image { padding: 4px; background: transparent; box-shadow: none; }
+.message-bubble img { display: block; max-width: min(280px, 100%); max-height: 300px; border-radius: 6px; }
+.composer { min-height: 94px; padding: 12px; display: flex; align-items: flex-end; gap: 9px; border-top: 1px solid #d6d6d6; background: #f7f7f7; }
+.image-btn, .send-btn { height: 38px; border: 0; border-radius: 5px; padding: 0 13px; display: grid; place-items: center; }
+.image-btn { color: #555; background: #e6e6e6; cursor: pointer; }
+.composer textarea { min-width: 0; flex: 1; height: 68px; max-height: 120px; resize: none; border: 0; border-radius: 5px; padding: 10px; outline: 0; background: white; }
+.send-btn { color: white; background: var(--green); }
+.call-overlay { position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; align-content: center; color: white; background: rgba(25,34,32,.97); }
+.call-avatar { width: 92px; height: 92px; border-radius: 18px; display: grid; place-items: center; color: white; background: #6a8caf; font-size: 34px; font-weight: 700; }
+.call-overlay h2 { margin: 20px 0 5px; }
+.call-overlay p { margin: 0; color: rgba(255,255,255,.65); }
+.call-actions { margin-top: 54px; display: flex; gap: 20px; }
+.call-button { min-width: 66px; height: 66px; border: 0; border-radius: 50%; color: white; background: rgba(255,255,255,.17); }
+.call-button.answer { background: var(--green); }
+.call-button.hang { background: #f24e4e; }
+.toast { position: fixed; left: 50%; bottom: 30px; z-index: 30; transform: translate(-50%, 10px); padding: 10px 15px; border-radius: 6px; color: white; background: rgba(0,0,0,.78); font-size: 12px; opacity: 0; pointer-events: none; transition: .2s; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 720px) {
+  .wechat-app { height: 100dvh; grid-template-columns: 54px minmax(0, 1fr); }
+  .rail { grid-row: 1; }
+  .contacts-pane { grid-column: 2; }
+  .chat-pane { position: fixed; inset: 0 0 0 54px; z-index: 5; transform: translateX(100%); transition: transform .2s; }
+  .chat-pane.mobile-open { transform: translateX(0); }
+  .chat-header::before { content: "返回"; color: var(--green); font-size: 13px; cursor: pointer; }
+  .message-bubble { max-width: 78%; }
+}
