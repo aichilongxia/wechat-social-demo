@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: wechat-social-demo
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run social
+    healthCheckPath: /
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: NODE_VERSION
+        value: 22.23.0
